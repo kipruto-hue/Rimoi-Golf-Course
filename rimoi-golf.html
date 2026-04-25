@@ -22,6 +22,7 @@
   --font-sans:'Barlow Condensed',Arial,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+img{max-width:100%;height:auto;display:block;}
 html{scroll-behavior:smooth;}
 body{background:var(--cream);color:var(--text-dark);font-family:var(--font-sans);cursor:none;overflow-x:hidden;}
 
@@ -298,7 +299,79 @@ footer{background:#060d08;padding:80px 56px 0;}
 
 /* TORN-PAPER DIVIDERS */
 .torn-paper{position:relative;z-index:20;pointer-events:none;line-height:0;overflow:hidden;}
-.torn-paper svg{display:block;width:100%;height:auto;}</style>
+.torn-paper svg{display:block;width:100%;height:auto;}
+/* TABLET ≤768px */
+@media(max-width:768px){
+  #hero{height:100svh;min-height:560px;}
+  .hero-title{font-size:clamp(2rem,7vw,3.2rem)!important;}
+  .hero-sub{font-size:13px;padding:0 8px;}
+  .hero-btns{flex-direction:column;align-items:center;gap:10px;}
+  .btn-primary,.btn-outline{width:100%;max-width:280px;text-align:center;}
+  .stat-number{font-size:2.3rem;}
+  .about-card{padding:32px 24px;}
+  .about-photo{height:200px;}
+  .about-badge{width:88px;height:88px;}
+  .about-badge .badge-year{font-size:1.3rem;}
+  .course-card{padding:40px 26px;}
+  .plan{padding:36px 24px;}
+  .plan-price{font-size:2.2rem;}
+  #experiences-section{padding:72px 0 72px 20px;}
+  .exp-header{padding-right:20px;}
+  .exp-card{min-width:200px;width:200px;height:340px;}
+  .exp-track{padding-right:20px;}
+  .g-item.large{height:280px!important;}
+  .g-item{height:200px!important;}
+  .contact-info,.contact-form-wrap{padding:56px 24px;}
+  footer{padding:56px 24px 0;}
+  .footer-bottom-logo{display:none;}
+  #caddie-panel{width:calc(100vw - 40px);right:20px;bottom:94px;}
+  #caddie-btn{width:52px;height:52px;bottom:24px;right:20px;}
+}
+
+/* PHONE ≤480px */
+@media(max-width:480px){
+  body{cursor:auto;}
+  #cursor-dot,#cursor-ring{display:none;}
+  #hero{height:100svh;min-height:580px;}
+  .hero-title{font-size:2.2rem!important;}
+  .hero-sub{font-size:12px;}
+  .scroll-indicator{display:none;}
+  .stats-bar{flex-direction:column;padding:0;}
+  .stat-item{width:100%;border-bottom:1px solid rgba(13,40,24,.12);padding:16px 24px;}
+  .stat-item:last-child{border-bottom:none;}
+  .stat-number{font-size:2.5rem;}
+  section,#about-section,#course-section,#membership-section,#gallery-section,#testimonials-section{padding:60px 18px;}
+  .section-title{font-size:clamp(1.7rem,6vw,2.6rem);}
+  .about-quote{font-size:1.1rem;}
+  .about-card{padding:26px 18px;}
+  .about-photo{height:175px;}
+  .course-card{padding:32px 20px;}
+  .course-num{font-size:6rem;}
+  .plans-grid{gap:12px;}
+  .plan{padding:30px 18px;}
+  #experiences-section{padding:60px 0 60px 16px;}
+  .exp-card{min-width:170px;width:170px;height:300px;}
+  .exp-track{padding-right:16px;}
+  .gallery-grid{grid-template-columns:1fr;}
+  .g-item{height:200px!important;}
+  .g-item.large{grid-column:auto;height:240px!important;}
+  .testi-card{padding:28px 18px;}
+  .contact-info,.contact-form-wrap{padding:48px 18px;}
+  .form-title{font-size:1.8rem;}
+  footer{padding:44px 18px 0;}
+  .footer-grid{grid-template-columns:1fr!important;}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center;padding:16px 0;}
+  .footer-bottom-logo{display:none;}
+  #caddie-btn{width:48px;height:48px;font-size:1.2rem;bottom:18px;right:16px;}
+  #caddie-panel{width:calc(100vw - 32px);right:16px;bottom:80px;max-height:480px;}
+}
+
+/* TOUCH — experience cards tappable */
+@media(pointer:coarse){
+  .exp-card{cursor:pointer;}
+  .exp-card.touch-active{min-width:300px!important;width:300px!important;}
+  .exp-card.touch-active .exp-desc{max-height:120px!important;opacity:1!important;}
+}</style>
 </head>
 <body>
 <!-- CURSOR -->
@@ -777,6 +850,17 @@ async function sendCaddieMsg(override){
 }
 function addMsg(role,text){const w=document.getElementById('caddieMessages');const d=document.createElement('div');d.className='caddie-msg '+role;d.textContent=text;w.appendChild(d);w.scrollTop=w.scrollHeight;return d;}
 function addTyping(){const w=document.getElementById('caddieMessages');const d=document.createElement('div');d.className='caddie-typing';d.innerHTML='<span></span><span></span><span></span>';w.appendChild(d);w.scrollTop=w.scrollHeight;return d;}
-</script>
+
+/* TOUCH DEVICE: disable custom cursor, enable tap-to-expand exp cards */
+if(window.matchMedia('(pointer:coarse)').matches){
+  document.body.style.cursor='auto';
+  document.querySelectorAll('.exp-card').forEach(card=>{
+    card.addEventListener('click',()=>{
+      const active=card.classList.contains('touch-active');
+      document.querySelectorAll('.exp-card').forEach(c=>c.classList.remove('touch-active'));
+      if(!active)card.classList.add('touch-active');
+    });
+  });
+}</script>
 </body>
 </html>
