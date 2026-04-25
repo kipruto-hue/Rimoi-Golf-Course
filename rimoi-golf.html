@@ -51,9 +51,8 @@ nav.scrolled{background:rgba(13,40,24,.97);backdrop-filter:blur(12px);padding:12
 
 /* HERO */
 #hero{position:relative;height:100vh;min-height:620px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(150deg,#061810 0%,#0d2818 30%,#1a3d25 60%,#061810 100%);}
-.hero-photo{position:absolute;inset:0;background:url('https://i.pinimg.com/1200x/d8/2f/e0/d82fe03e5f58dffa1e0c1826d30ace69.jpg') center/cover no-repeat;opacity:.22;z-index:1;}
-.hero-svg-wrap{position:absolute;bottom:0;left:0;right:0;z-index:2;height:340px;}
+.hero-bg{position:absolute;inset:0;background:url('https://i.pinimg.com/1200x/d8/2f/e0/d82fe03e5f58dffa1e0c1826d30ace69.jpg') center/cover no-repeat;z-index:0;}
+.hero-photo{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.45) 0%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.55) 100%);z-index:1;}
 .hero-content{position:relative;z-index:3;text-align:center;padding:0 24px;max-width:920px;}
 .hero-eyebrow{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;opacity:0;animation:fadeUp .8s .3s forwards;}
 .hero-title{font-family:var(--font-serif);font-size:clamp(3rem,7.5vw,7rem);font-weight:500;color:var(--cream);line-height:1.04;margin-bottom:26px;opacity:0;animation:fadeUp .9s .5s forwards;}
@@ -334,44 +333,6 @@ footer{background:#060d08;padding:80px 56px 0;}
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-photo"></div>
-  <div class="hero-svg-wrap">
-    <svg viewBox="0 0 1440 340" preserveAspectRatio="none" style="width:100%;height:100%;display:block;" id="heroSVG">
-      <defs>
-        <linearGradient id="escG1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a3d25"/><stop offset="100%" stop-color="#0d2818"/></linearGradient>
-        <linearGradient id="escG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d5a3d"/><stop offset="100%" stop-color="#1a3d25"/></linearGradient>
-        <linearGradient id="fwG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3d7a52"/><stop offset="100%" stop-color="#2d5a3d"/></linearGradient>
-      </defs>
-      <!-- Sun glow -->
-      <ellipse cx="720" cy="90" rx="220" ry="55" fill="#b8952a" opacity=".1"/>
-      <!-- Far escarpment -->
-      <path id="p1" d="M0,190 Q90,90 200,130 Q360,55 520,110 Q680,40 840,80 Q1000,20 1160,65 Q1300,35 1440,85 L1440,340 L0,340Z" fill="url(#escG1)" opacity=".88"/>
-      <!-- Mid escarpment -->
-      <path id="p2" d="M0,225 Q120,165 260,195 Q420,145 580,175 Q740,148 900,170 Q1060,142 1220,168 Q1350,155 1440,175 L1440,340 L0,340Z" fill="url(#escG2)" opacity=".94"/>
-      <!-- Fairway -->
-      <path id="p3" d="M0,268 Q200,248 420,262 Q640,248 860,264 Q1080,250 1300,265 Q1380,260 1440,268 L1440,340 L0,340Z" fill="url(#fwG)"/>
-      <!-- Acacia 1 -->
-      <g id="tree1"><rect x="98" y="198" width="5" height="46" fill="#0a1e10"/><ellipse cx="100" cy="194" rx="32" ry="15" fill="#162e1c"/><ellipse cx="76" cy="200" rx="18" ry="9" fill="#162e1c"/><ellipse cx="124" cy="200" rx="18" ry="9" fill="#162e1c"/></g>
-      <!-- Acacia 2 -->
-      <g id="tree2"><rect x="308" y="205" width="4" height="36" fill="#0a1e10"/><ellipse cx="310" cy="202" rx="26" ry="12" fill="#1f4028"/><ellipse cx="290" cy="207" rx="15" ry="8" fill="#1f4028"/><ellipse cx="330" cy="207" rx="15" ry="8" fill="#1f4028"/></g>
-      <!-- Acacia 3 -->
-      <g id="tree3"><rect x="1098" y="188" width="5" height="52" fill="#0a1e10"/><ellipse cx="1100" cy="183" rx="36" ry="17" fill="#162e1c"/><ellipse cx="1072" cy="190" rx="20" ry="10" fill="#162e1c"/><ellipse cx="1128" cy="190" rx="20" ry="10" fill="#162e1c"/></g>
-      <!-- Acacia 4 -->
-      <g id="tree4"><rect x="1318" y="198" width="4" height="38" fill="#0a1e10"/><ellipse cx="1320" cy="195" rx="22" ry="11" fill="#1f4028"/><ellipse cx="1302" cy="201" rx="13" ry="7" fill="#1f4028"/><ellipse cx="1338" cy="201" rx="13" ry="7" fill="#1f4028"/></g>
-      <!-- Elephant silhouette -->
-      <g id="elephant" transform="translate(815,238) scale(0.75)">
-        <ellipse cx="0" cy="0" rx="30" ry="19" fill="#0a1e10"/>
-        <ellipse cx="28" cy="-5" rx="15" ry="13" fill="#0a1e10"/>
-        <rect x="33" y="6" width="6" height="24" rx="3" fill="#0a1e10"/>
-        <rect x="-20" y="15" width="6" height="16" rx="3" fill="#0a1e10"/>
-        <rect x="-8" y="15" width="6" height="18" rx="3" fill="#0a1e10"/>
-        <rect x="10" y="15" width="6" height="16" rx="3" fill="#0a1e10"/>
-        <rect x="22" y="15" width="6" height="14" rx="3" fill="#0a1e10"/>
-      </g>
-      <!-- Flag -->
-      <g><rect x="678" y="236" width="2.5" height="54" fill="#b8952a" opacity=".9"/><polygon points="680.5,236 706,245 680.5,254" fill="#b8952a" opacity=".9"/></g>
-    </svg>
-  </div>
-
   <div class="hero-content">
     <p class="hero-eyebrow">Kerio Valley &middot; Elgeyo-Marakwet &middot; Kenya</p>
     <h1 class="hero-title">Where the Rift Valley<br/><em>Meets the Fairway</em></h1>
@@ -771,11 +732,8 @@ mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mmenu.cla
 /* HERO PARALLAX */
 document.getElementById('hero').addEventListener('mousemove',e=>{
   const mx=(e.clientX/innerWidth-.5)*2,my=(e.clientY/innerHeight-.5)*2;
-  const move=(id,x,y)=>{const el=document.getElementById(id);if(el)el.style.transform='translate('+x+'px,'+y+'px)';};
-  move('p1',mx*10,my*5);move('p2',mx*16,my*8);move('p3',mx*22,0);
-  move('tree1',mx*6,my*3);move('tree2',mx*8,my*4);
-  move('tree3',mx*14,my*6);move('tree4',mx*18,my*7);
-  move('elephant',mx*20,my*9);
+  const bg=document.querySelector('.hero-bg');
+  if(bg) bg.style.transform='scale(1.04) translate('+mx*8+'px,'+my*4+'px)';
 });
 
 /* INTERSECTION OBSERVER */
