@@ -751,18 +751,18 @@ footer{background:#060d08;padding:80px 56px 0;}
 </footer>
 
 <!-- CADDIE BOT -->
-<button id="caddie-btn" onclick="toggleCaddie()" title="Ask James — Your AI Caddie">&#9971;</button>
+<button id="caddie-btn" onclick="toggleCaddie()" title="Ask Max — Your AI Caddie">&#9971;</button>
 <div id="caddie-panel">
   <div class="caddie-header">
     <div class="caddie-avatar">&#127948;</div>
     <div class="caddie-info">
-      <div class="caddie-name">James &mdash; Your AI Caddie</div>
+      <div class="caddie-name">Max &mdash; Your AI Caddie</div>
       <div class="caddie-status"><span class="caddie-dot"></span>Online now</div>
     </div>
     <button class="caddie-close" onclick="toggleCaddie()">&#10005;</button>
   </div>
   <div class="caddie-messages" id="caddieMessages">
-    <div class="caddie-msg bot">Jambo! I'm James, your personal caddie at Rimoi Golf Course. Ask me anything about tee times, membership, course conditions, or the Kerio Valley. Karibu! &#127807;</div>
+    <div class="caddie-msg bot">Jambo! I'm Max, your personal caddie at Rimoi Golf Course. Ask me anything about tee times, membership, course conditions, or the Kerio Valley. Karibu! &#127807;</div>
   </div>
   <div class="caddie-chips" id="caddieChips">
     <button class="caddie-chip" onclick="sendChip(this)">Tee Times</button>
@@ -772,14 +772,14 @@ footer{background:#060d08;padding:80px 56px 0;}
     <button class="caddie-chip" onclick="sendChip(this)">Wildlife on Course</button>
   </div>
   <div class="caddie-input-row">
-    <input class="caddie-input" id="caddieInput" placeholder="Ask James anything..." onkeydown="if(event.key==='Enter')sendCaddieMsg()"/>
+    <input class="caddie-input" id="caddieInput" placeholder="Ask Max anything..." onkeydown="if(event.key==='Enter')sendCaddieMsg()"/>
     <button class="caddie-send" onclick="sendCaddieMsg()">&#10148;</button>
   </div>
 </div>
 
 <script>
 const ANTHROPIC_API_KEY = 'YOUR_ANTHROPIC_API_KEY_HERE';
-const CADDIE_SYSTEM = "You are James, the friendly and knowledgeable AI caddie for RIMOI GOLF COURSE, located in the Kerio Valley, Elgeyo-Marakwet County, Kenya, near Eldoret and Iten. You are warm, professional, and passionate about golf and the Kenyan wilderness. You help visitors with: tee time bookings (daily 6AM-6PM, last tee-off 3:30PM), membership inquiries (Valley KES 45,000/yr, Rift KES 90,000/yr, Champion KES 160,000/yr), course layout info (18 holes, Par 72, 7500 yards, established 2022, Escarpment Nine and Kerio Nine), local wildlife (elephants, Grevy's zebra, leopard, 400+ bird species, Rimoi National Reserve), directions (45km from Eldoret, 12km from Iten, GPS: 0.8734N 35.5186E), and general golf advice. Phone: +254 700 000 000, Email: info@rimoigolf.co.ke. Speak in a friendly, slightly playful tone. Use Swahili greetings occasionally (Jambo, Karibu, Asante). Keep answers concise — max 3 sentences.";
+const CADDIE_SYSTEM = "You are Max, the friendly and knowledgeable AI caddie for RIMOI GOLF COURSE, located in the Kerio Valley, Elgeyo-Marakwet County, Kenya, near Eldoret and Iten. You are warm, professional, and passionate about golf and the Kenyan wilderness. You help visitors with: tee time bookings (daily 6AM-6PM, last tee-off 3:30PM), membership inquiries (Valley KES 45,000/yr, Rift KES 90,000/yr, Champion KES 160,000/yr), course layout info (18 holes, Par 72, 7500 yards, established 2022, Escarpment Nine and Kerio Nine), local wildlife (elephants, Grevy's zebra, leopard, 400+ bird species, Rimoi National Reserve), directions (45km from Eldoret, 12km from Iten, GPS: 0.8734N 35.5186E), and general golf advice. Phone: +254 700 000 000, Email: info@rimoigolf.co.ke. Speak in a friendly, slightly playful tone. Use Swahili greetings occasionally (Jambo, Karibu, Asante). Keep answers concise — max 3 sentences.";
 
 /* CURSOR */
 const dot=document.getElementById('cursor-dot');
