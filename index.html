@@ -809,17 +809,20 @@ const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target
 document.querySelectorAll('[data-animate]').forEach(el=>obs.observe(el));
 
 /* STATS COUNT-UP */
-let counted=false;
-new IntersectionObserver(([e])=>{
-  if(e.isIntersecting&&!counted){
-    counted=true;
-    document.querySelectorAll('.stat-number').forEach(el=>{
-      const target=+el.dataset.target,dur=1800,frames=60,inc=target/frames;
-      let cur=0;
-      const t=setInterval(()=>{cur=Math.min(cur+inc,target);el.textContent=Math.floor(cur).toLocaleString();if(cur>=target){el.textContent=target.toLocaleString();clearInterval(t);}},dur/frames);
-    });
-  }
-},{threshold:.3}).observe(document.getElementById('statsBar'));
+const statsBarEl=document.getElementById('statsBar');
+if(statsBarEl){
+  let counted=false;
+  new IntersectionObserver(([e])=>{
+    if(e.isIntersecting&&!counted){
+      counted=true;
+      document.querySelectorAll('.stat-number').forEach(el=>{
+        const target=+el.dataset.target,dur=1800,frames=60,inc=target/frames;
+        let cur=0;
+        const t=setInterval(()=>{cur=Math.min(cur+inc,target);el.textContent=Math.floor(cur).toLocaleString();if(cur>=target){el.textContent=target.toLocaleString();clearInterval(t);}},dur/frames);
+      });
+    }
+  },{threshold:.3}).observe(statsBarEl);
+}
 
 /* FORM */
 function handleBooking(e){e.preventDefault();document.getElementById('formSuccess').style.display='block';e.target.reset();}
